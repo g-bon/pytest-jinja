@@ -3,6 +3,31 @@ name = "pytest-jinja"
 version = "0.1.0"
 description = "A plugin to generate customizable jinja-based HTML reports in pytest"
 authors = ["Gabriele Bonetti <gabriele.bonetti@gmail.com>"]
+license = "GPL-2.0"
+readme = "README.rst"
+homepage = "https://github.com/g-bon/pytest-jinja"
+repository = "https://github.com/g-bon/pytest-jinja"
+keywords = ["py.test", "pytest", "html", "testing", "report"]
+classifiers=[
+    "Development Status :: 3 - Alpha",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3 :: Only",
+]
+include = [
+    "LICENSE",
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
