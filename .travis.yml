@@ -2,19 +2,17 @@
 
 sudo: false
 language: python
+python: "3.6"
 
-matrix:
-    include:
-      - python: 3.6
-        env: TOX_ENV=py36
-      - python: 3.7
-        env: TOX_ENV=py37
-
-install:
+before_install:
+  - pip install poetry
   - pip install tox
 
+install:
+  - poetry install
+
 script:
-  - tox -e $TOX_ENV
+  - tox
 
 before_cache:
   - rm -rf $HOME/.cache/pip/log
