@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Report - {{ report.time_report_generation }}</title>
+</head>
+<body>
+<h1>Test Report - {{ report.time_report_generation }} </h1>
+
+<h2>Environment</h2>
+<table id="environment">
+    {% for name,value in report.environment.items() %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<p>Duration: {{ report.duration | round(2) }}</p>
+<p>Summary: {{ report.summary }}</p>
+
+<table>
+    {% for r in report.results %}
+    <tr>
+        <td>{{ r.test_id }}</td>
+        <td>{{ r.outcome }}</td>
+        <td><strong>{{ r.time|round(5) }}s</strong></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
