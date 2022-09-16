@@ -71,6 +71,7 @@ class JinjaReport:
             self.outcome = report.outcome
             self.stacktrace = str(report.longrepr) if report.longrepr else report.longrepr
             self.config = config
+            self.user_properties = report.user_properties
 
         def __lt__(self, other):
             order = ("Error", "Failed", "Rerun", "XFailed", "XPassed", "Skipped", "Passed")
