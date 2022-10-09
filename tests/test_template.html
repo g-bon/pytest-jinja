@@ -27,6 +27,7 @@
         <td>{{ r.test_id }}</td>
         <td>{{ r.outcome }}</td>
         <td><strong>{{ r.time|round(5) }}s</strong></td>
+        <td>{% for k, v in r.user_properties or [] %}{{ k }} = {{ v | tojson }}{% endfor %}</td>
     </tr>
     {% endfor %}
 </table>

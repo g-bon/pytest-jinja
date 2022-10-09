@@ -109,10 +109,10 @@ class TestPytestJinja:
         class TestStupid:
             def test_pass(self):
                 assert 1 == 1
-        
+
             def test_fail(self):
                 assert 1 == 2
-        
+
             @pytest.mark.skip
             def test_skip(self):
                 pass
@@ -211,3 +211,18 @@ class TestPytestJinja:
         result, html = run(testdir)
         assert result.ret == 0
         assert_results(html, passed=1)
+
+    def test_record_properties(self, testdir):
+        testdir.makepyfile(
+            r"""
+            import pytest
+
+            def test_foo(record_property):
+                record_property("example", 123)
+        """
+        )
+        report_path = "report.html"
+        template_path = Path(__file__).parent / "test_template.html"
+        result, html = run(testdir, report_path=report_path, template_path=template_path)
+        assert result.ret == 0
+        assert 'example = 123' in html
